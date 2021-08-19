@@ -20,7 +20,7 @@ const Home = ({ restaurants, error }) => {
 
 Home.getInitialProps = async ctx => {
   try {
-    const res = await axios.get('http://localhost:1337/restaurants');
+    const res = await axios.get(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/restaurants`);
     const restaurants = res.data;
     return { restaurants };
   } catch (error) {
